@@ -1,0 +1,63 @@
+﻿ @page
+@model MinimalAPiTest.Pages.Tareas.IndexModel
+@{
+	ViewData["Title"] = "Tareas!";
+}
+<body>
+	<h1>Tareas</h1>
+	<section class="container">
+		<article>
+			<a class="btn btn-success float-end" asp-page="add">Add</a>
+			@if (Model.TareasListadas.Count() > 0)
+			{
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>@Html.DisplayNameFor(m => m.TareasListadas.First().TareaID)</th>
+							<th>@Html.DisplayNameFor(m => m.TareasListadas.First().Titulo)</th>
+							<th>@Html.DisplayNameFor(m => m.TareasListadas.First().CategoriaID)</th>
+							<th>@Html.DisplayNameFor(m => m.TareasListadas.First().Descripcion)</th>
+							<th>@Html.DisplayNameFor(m => m.TareasListadas.First().EstadoTarea)</th>
+							<th>@Html.DisplayNameFor(m => m.TareasListadas.First().FechaCreacion)</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var tarea in Model.TareasListadas)
+						{
+							<tr>
+								<td>@Html.DisplayFor(m => tarea.TareaID)</td>
+								<td>@Html.DisplayFor(m => tarea.Titulo)</td>
+								<td>@Html.DisplayFor(m => tarea.CategoriaID)</td>
+								<td>@Html.DisplayFor(m => tarea.Descripcion)</td>
+								<td>@Html.DisplayFor(m => tarea.EstadoTarea)</td>
+								<td>@Html.DisplayFor(m => tarea.FechaCreacion)</td>
+								<td>
+									<a asp-page="edit"
+							   class="btn btn-primary"
+							   asp-route-id="@tarea.TareaID">Edit</a>
+								</td>
+								<td>
+									<form method="post">
+										<button asp-page-handler="Delete"
+										asp-route-id="@tarea.TareaID"
+										class="btn btn-danger"
+										onclick="return confirm('Eiminar el registro?')">
+											Eliminar
+										</button>
+									</form>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			}
+			else
+			{
+				<p>No hay tareas!</p>
+			}
+		</article>
+	</section>
+</body>
+

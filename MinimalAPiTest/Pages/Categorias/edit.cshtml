@@ -1,0 +1,34 @@
+﻿@page
+@model MinimalAPiTest.Pages.Categorias.editModel
+@{
+	ViewData["Title"] = "Editar Categorias!";
+}
+<Body>
+	<h1>Editar Categoria</h1>
+	<article class="row">
+		<form method="post">
+			<div asp-validation-summary="ModelOnly" class="test-danger"></div>
+
+			<input asp-for="CategoriaEditable.CategoriaID" type="hidden" class="form-control" />
+
+			<article class="form-group">
+				<label asp-for="CategoriaEditable.Nombre" class="control-label"></label>
+				<input asp-for="CategoriaEditable.Nombre" class="form-control">
+				<span asp-validation-for="CategoriaEditable.Nombre" class="text-danger"></span>
+			</article>
+
+			<article class="form-group">
+				<label asp-for="CategoriaEditable.Descripcion" class="control-label"></label>
+				<input asp-for="CategoriaEditable.Descripcion" class="form-control">
+				<span asp-validation-for="CategoriaEditable .Descripcion" class="text-danger"></span>
+			</article>
+
+			<article class="form-group">
+				<input type="submit" value="edit" class="btn-lg float-end btn-primary ">
+			</article>
+			<article class="form-group" style="display: inline-block;">
+				<a asp-page="Index" class="btn btn-light">Volver al listado</a>
+			</article>
+		</form>
+	</article>
+</Body>

@@ -1,0 +1,44 @@
+﻿@page
+@model MinimalAPiTest.Pages.Tareas.addModel
+@{
+	ViewData["Title"] = "Guardar Tareas!";
+}
+<Body>
+	<h1>Crear Tarea</h1>
+	<section class="row">
+		<form method="post">
+			<div asp-validation-summary="ModelOnly" class="test-danger"></div>
+
+			<article class="form-group">
+				<label asp-for="TareaGuardable.Titulo" class="control-label"></label>
+				<input asp-for="TareaGuardable.Titulo" class="form-control">
+				<span asp-validation-for="TareaGuardable.Titulo" class="text-danger"></span>
+			</article>
+
+			<article class="form-group">
+				<label asp-for="TareaGuardable.Descripcion" class="control-label"></label>
+				<input asp-for="TareaGuardable.Descripcion" class="form-control">
+				<span asp-validation-for="TareaGuardable .Descripcion" class="text-danger"></span>
+			</article>
+
+			<article class="form-group">
+				<label asp-for="TareaGuardable.CategoriaID" class="control-label"></label>
+				<input asp-for="TareaGuardable.CategoriaID" class="form-control">
+				<span asp-validation-for="TareaGuardable .CategoriaID" class="text-danger"></span>
+			</article>
+
+			<article class="form-group">
+				<label asp-for="TareaGuardable.EstadoTarea" class="control-label"></label>
+				<input asp-for="TareaGuardable.EstadoTarea" class="form-control">
+				<span asp-validation-for="TareaGuardable.EstadoTarea" class="text-danger"></span>
+			</article>
+
+			<article class="form-group">
+				<input type="submit" value="add" class="btn-lg float-end btn-primary ">
+			</article>
+			<article class="form-group" style="display: inline-block;">
+				<a asp-page="Index" class="btn btn-light">Volver al listado</a>
+			</article>
+		</form>		
+	</section>
+</Body>

@@ -1,0 +1,57 @@
+﻿@page
+@model MinimalAPiTest.Pages.Categorias.IndexModel
+@{
+	ViewData["Title"] = "Categorias!";
+}
+<body>
+	<h1>Tareas</h1>
+	<section class="container">
+		<article>
+			<a class="btn btn-success float-end" asp-page="add">Add</a>
+			@if (Model.CategoriasListadas.Count() > 0)
+			{
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>@Html.DisplayNameFor(m => m.CategoriasListadas.First().CategoriaID)</th>
+							<th>@Html.DisplayNameFor(m => m.CategoriasListadas.First().Nombre)</th>
+							<th>@Html.DisplayNameFor(m => m.CategoriasListadas.First().Descripcion)</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var categoria in Model.CategoriasListadas)
+						{
+							<tr>
+								<td>@Html.DisplayFor(m => categoria.CategoriaID)</td>
+								<td>@Html.DisplayFor(m => categoria.Nombre)</td>
+								<td>@Html.DisplayFor(m => categoria.Descripcion)</td>
+								<td>
+									<a asp-page="edit"
+							   class="btn btn-primary"
+							   asp-route-id="@categoria.CategoriaID">Edit</a>
+								</td>
+								<td>
+									<form method="post">
+										<button asp-page-handler="Delete"
+										asp-route-id="@categoria.CategoriaID"
+										class="btn btn-danger"
+										onclick="return confirm('Eiminar el registro?')">
+											Eliminar
+										</button>
+									</form>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			}
+			else
+			{
+				<p>No hay categorias!</p>
+			}
+		</article>
+	</section>
+</body>
+

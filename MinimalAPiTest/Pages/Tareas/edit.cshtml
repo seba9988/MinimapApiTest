@@ -1,0 +1,46 @@
+﻿@page
+@model MinimalAPiTest.Pages.Tareas.editModel
+@{
+	ViewData["Title"] = "Editar Tareas!";
+}
+<Body>
+	<h1>Editar Tarea</h1>
+	<section class="row">
+		<form method="post">
+			<div asp-validation-summary="ModelOnly" class="test-danger"></div>
+
+				<input asp-for="TareaEditable.TareaID" type="hidden" class="form-control"/>
+
+			<article class="form-group">
+				<label asp-for="TareaEditable.Titulo" class="control-label"></label>
+				<input asp-for="TareaEditable.Titulo" class="form-control">
+				<span asp-validation-for="TareaEditable.Titulo" class="text-danger"></span>
+			</article>
+
+			<article class="form-group">
+				<label asp-for="TareaEditable.Descripcion" class="control-label"></label>
+				<input asp-for="TareaEditable.Descripcion" class="form-control">
+				<span asp-validation-for="TareaEditable.Descripcion" class="text-danger"></span>
+			</article>
+
+			<article class="form-group">
+				<label asp-for="TareaEditable.CategoriaID" class="control-label"></label>
+				<input asp-for="TareaEditable.CategoriaID" class="form-control">
+				<span asp-validation-for="TareaEditable.CategoriaID" class="text-danger"></span>
+			</article>
+
+			<article class="form-group">
+				<label asp-for="TareaEditable.EstadoTarea" class="control-label"></label>
+				<input asp-for="TareaEditable.EstadoTarea" class="form-control">
+				<span asp-validation-for="TareaEditable.EstadoTarea" class="text-danger"></span>
+			</article>
+
+			<article class="form-group">
+				<input type="submit" value="edit" class="btn-lg float-end btn-primary ">
+			</article>
+			<article class="form-group" style="display: inline-block;">
+				<a asp-page="Index" class="btn btn-light">Volver al listado</a>
+			</article>
+		</form>
+	</section>
+</Body>
